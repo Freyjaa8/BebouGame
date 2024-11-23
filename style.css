@@ -1,0 +1,189 @@
+body {
+    background-color: #2b2b2b;
+    color: white;
+}
+#health-bar{
+    width: 150px;
+    height: 20px;
+    background: #ff6f9130;
+    border-radius: 50px;
+    overflow: hidden;
+    position: absolute;
+    margin: auto;
+    margin-top: 5rem;
+    top: -50%;
+}
+
+#health{
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: width 1s ease-in-out;
+    height: 20px;
+    border-right: 1px solid #000;
+    
+    text-align: center;
+}
+
+.questions {
+    box-shadow: 1px 1px 20px #ff6f91c6 , -1px -1px 20px #ff6f9145;
+    /* background-color: #ff6f91a1; */
+    text-align: center;
+    margin-top: 10px;
+    max-width: 100%;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+}
+label {
+    padding: 5px;
+}
+legend {
+    padding: 5px;
+}
+/* Style romantique pour le bouton */
+.btn-romantique {
+   
+    background : linear-gradient(135deg, #ff6f91, #ff4e6a); /* Un joli rose pastel */
+    color: white; /* Texte en blanc pour contraster */
+    border: none; /* Bordure légèrement plus foncée pour un effet de profondeur */
+    padding: 15px 30px; /* Un peu plus de padding pour un bouton plus grand et plus "confortable" */
+    font-size: 20px; /* Taille du texte un peu plus grande pour le côté mignon */
+    font-weight: bold; /* Texte en gras, pour plus de présence */
+    border-radius: 30px; /* Coins super arrondis pour un look doux et agréable */
+    cursor: pointer; /* Le curseur devient une main au survol */
+    outline: none; /* Enlever le contour de focus par défaut */
+    text-transform: uppercase; /* Tout en majuscules pour donner un côté fort et expressif */
+    box-shadow: 0 4px 8px rgba(255, 77, 125, 0.5); /* Ombre douce pour l'effet 3D */
+    transition: all 0.3s ease; /* Transition douce pour le survol et le clic */
+  }
+  
+  .btn-romantique:hover {
+    background: linear-gradient(135deg, #ff4e6a, #ff8bb3); 
+    border-color: #ff357f; /* Bordure qui se fonce aussi */
+    box-shadow: 0px 6px 12px #ff8bb46e ; /* Plus d’ombre rouge */
+    transform: scale(1.05);
+   
+  }
+  
+  .btn-romantique:active {
+    transform: scale(0.98); /* Réduction légère au clic pour un effet de pression */
+    background : linear-gradient(135deg, #d94a63, #ff6f91);
+    border-color: #ff1f6a; /* Bordure encore plus foncée */
+  }
+  
+  .btn-giveUp {
+    background : linear-gradient(135deg, #ff6f91, #ff4e6a);  /* Rouge dramatique dégradé */
+    color: #fff; /* Texte blanc */
+    font-size: 1.2rem; /* Taille de police visible */
+    font-family: 'Roboto', sans-serif; /* Police moderne */
+    font-weight: bold; /* Texte impactant */
+    padding: 10px 20px; /* Marges intérieures confortables */
+    border: none; /* Pas de bordure moche */
+    border-radius: 8px; /* Coins légèrement arrondis */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Effet d'ombre */
+    cursor: pointer; /* Doigt pour indiquer que c'est cliquable */
+    text-transform: uppercase; /* LETTRES CAPITALES */
+    letter-spacing: 1px; /* Espacement pour le drama */
+    transition: all 0.3s ease; /* Animation fluide */
+  }
+  
+  .btn-giveUp:hover {
+    background: linear-gradient(135deg, #ff4e6a, #ff8bb3);  /* Changement de couleurs pour l'effet dramatique */
+    box-shadow: 0px 6px 12px #ff8bb46e ; /* Plus d’ombre rouge */
+    transform: scale(1.05); /* Petit zoom pour attirer l’attention */
+  }
+  
+  .btn-giveUp:active {
+    background : linear-gradient(135deg, #d94a63, #ff6f91); /* Rouge plus sombre au clic */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Réduction de l’ombre */
+    transform: scale(0.95); /* Petit effet d’enfoncement */
+  }
+
+  .modal {
+    display: none; /* Caché par défaut */
+    position : fixed;
+    width: 50%;
+    height: 250px;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(16, 16, 16, 0.082);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    text-align: center;
+    border: 1px solid white;
+    background-color: #2b2b2b;
+  }
+  
+  .modal-overlay {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+   
+  }
+  
+  .modal button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #ff6f91;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .modal button:hover {
+    background: #d94a63;
+  }
+  @keyframes tressauter {
+    0%, 100% {
+      transform: translateY(0); /* Position normale */
+    }
+    25% {
+      transform: translateY(-3px); /* Monte légèrement */
+    }
+    50% {
+      transform: translateY(3px); /* Redescend */
+    }
+    75% {
+      transform: translateY(-1px); /* Petite montée intermédiaire */
+    }
+  }
+  .health-bar-critical {
+    background: linear-gradient(90deg, #ff4e50, #d72638); /* Ton rouge dramatique */
+    height: 20px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    animation: tressauter 0.5s ease infinite; /* Animation infinie */
+  }
+
+.herbe{
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to right, #34d399, #10b981);
+}
+
+#bebouart{
+    margin-top: 5rem;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+#love{
+    display: flex;
+    justify-content: space-between;
+}
+
+#trone{
+    background-color: brown;
+    width: 100%;
+    height: 100px;
+}
